@@ -1,12 +1,26 @@
 <h1> Eat, Do, & Drink in <%=@area[:name]%> </h1>
 
-<div class="col-sm-3">
-    <h3>When?</h3>
-    <p><%= @area[:id] %></p>
-</div>
-
-# Loop for Areas
-
-<% for location in @locations %>
+<!-- Table May Not Function Accurately... (RikiCount & Comments Need To Be Looped Somehow...) -->
+<table class="table table-striped">
+ <thead class="thead-light">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">RikiCount</th>
+      <th scope="col">Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><% for location in @locations %>
     <p><a href="/locations/<%= location[:id] %>"><%= location[:name] %></a></p>
-<% end %>
+<% end %></td>
+      <td><% for location in @locations %>
+    <p><a href="/locations/<%= location[:id] %>"> <%= location [:description] %></a></p>
+<% end %></td>
+      <td>82%</td>
+      <td>Insert Fake Comments...</td>
+    </tr>
+  </tbody>
+</table>
