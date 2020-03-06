@@ -8,7 +8,6 @@
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">RikiCount</th>
-      <th scope="col">Comments</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +19,6 @@
     <p><a href="/locations/<%= location[:id] %>"> <%= location [:description] %></a></p>
 <% end %></td>
       <td>82%</td>
-      <td>Insert Fake Comments...</td>
     </tr>
   </tbody>
 </table>
@@ -40,6 +38,39 @@
       <option>West Loop</option>
       <option>Wicker Park</option>
     </select>
+  </div>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name">
+  </div>
+  <div class="form-group">
+    <label>Address</label>
+    <input type="text" class="form-control" name="address">
+  </div>
+  <div class="form-group">
+    <label>Description (Keep it Short!)</label>
+    <input type="text" class="form-control" name="description">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h1>Submit a New Bar! - TEST</h1>
+
+<form action="/locations/submit" method="post">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Neighborhood</label>
+    <select class="form-control" input type = "integer" id="exampleFormControlSelect1">
+      <option>Evanston</option>
+      <option>Lincoln Park</option>
+      <option>Old Town</option>
+      <option>River North</option>
+      <option>West Loop</option>
+      <option>Wicker Park</option>
+    </select>
+  </div>
+    <div class="form-group">
+    <label>Area ID</label>
+    <input type="integer" class="form-control" name="areas_id">
   </div>
   <div class="form-group">
     <label>Name</label>
