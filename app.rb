@@ -28,6 +28,11 @@ areas_table = DB.from(:areas)
 #Users Table = Users on HotRiki
 users_table = DB.from(:users)
 
+#Carry Log In Across Multiple Pages...
+before do
+    @current_user = users_table.where(id: session["user_id"]).to_a[0]
+end
+
 get "/" do
     puts "params: #{params}"
     @areas = areas_table.all.to_a
@@ -78,4 +83,25 @@ get "/logout" do
     session["user_id"] = nil
     @current_user = nil
     view "logout"
+end
+
+# Riki Submission Page
+
+post "/rikis/submit" do
+    puts params
+    rikis_table.insert(purpose: params["purpose"],
+                        rating: params["rating"],
+                        comments: params["comments"])
+    view "submit_riki"
+end
+
+# Location Submission Page
+
+post "/locations/submit" do
+    puts params
+    locations_table.insert(areas_id: params["areas_id"], 
+                            name: params["name"],
+                            address: params["address"],
+                            description: params["description"])
+    view "submit_location"
 end

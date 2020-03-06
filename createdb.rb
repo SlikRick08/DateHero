@@ -20,8 +20,7 @@ DB.create_table! :rikis do
   primary_key :id
   foreign_key :locations_id
   foreign_key :users_id
-  Boolean :rating
-  String :name
+  Integer :rating
   String :purpose
   String :comments
 end
@@ -46,8 +45,8 @@ areas_table.insert(name: "Evanston")
 areas_table.insert(name: "Lincoln Park")
 areas_table.insert(name: "Old Town")
 areas_table.insert(name: "River North")
-areas_table.insert(name: "Wicker Park")
 areas_table.insert(name: "West Loop")
+areas_table.insert(name: "Wicker Park")
 
 #Locations Initial (Seed) - Evanston
 
@@ -105,30 +104,45 @@ locations_table.insert(name: "Bub City",
                     address: "435 N Clark St, Chicago, IL 60654",
                     areas_id: 4)    
 
-#Locations Initial (Seed) - Wicker Park
-
-locations_table = DB.from(:locations)
-locations_table.insert(name: "The Violet Hour", 
-                    description: "Chic Speakeasy",
-                    address: "1520 N Damen Ave, Chicago, IL 60622",
-                    areas_id: 5)
-
-locations_table = DB.from(:locations)
-locations_table.insert(name: "The Revel Room", 
-                    description: "Vintage Furnishings and Walls of Books",
-                    address: "1566 N Milwaukee Ave, Chicago, IL 60622",
-                    areas_id: 5)   
-
 #Locations Initial (Seed) - West Loop
 
 locations_table = DB.from(:locations)
 locations_table.insert(name: "Moneygun", 
                     description: "Loud Rap Music!",
                     address: "660 W Lake St",
-                    areas_id: 6)
+                    areas_id: 5)
 
 locations_table = DB.from(:locations)
 locations_table.insert(name: "The Aviary", 
                     description: "Over-the-Top Cocktails",
                     address: "955 W Fulton Market, Chicago, IL 60607",
-                    areas_id: 6)   
+                    areas_id: 5)  
+
+#Locations Initial (Seed) - Wicker Park
+
+locations_table = DB.from(:locations)
+locations_table.insert(name: "The Violet Hour", 
+                    description: "Chic Speakeasy",
+                    address: "1520 N Damen Ave, Chicago, IL 60622",
+                    areas_id: 6)
+
+locations_table = DB.from(:locations)
+locations_table.insert(name: "The Revel Room", 
+                    description: "Vintage Furnishings and Walls of Books",
+                    address: "1566 N Milwaukee Ave, Chicago, IL 60622",
+                    areas_id: 6)    
+
+#Users (Seed)
+
+users_table = DB.from(:users)
+
+users_table.insert(name: "Riki",
+                email: "rikinder.mahal@gmail.com", 
+                password: "Dog")
+
+users_table.insert(name: "Christian",
+                email: "falcoca@gmail.com", 
+                password: "Riki")
+
+#Riki's (Seed)
+

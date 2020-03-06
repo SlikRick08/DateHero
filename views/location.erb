@@ -10,4 +10,38 @@
   Description: <%= @location[:description] %>
 </h4>
 
-<p><a href="/" class="btn btn-primary">Go Home</a></p>
+<p></p>
+
+<h1>Submit a Riki!</h1>
+
+<!-- Form for Review Submission -->
+
+<form action = "/rikis/submit" method="post">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">User ID</label>
+    <input type="string" class="form-control" id="exampleFormControlInput1" placeholder="Insert User ID">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Riki It! (Score 1-5)</label>
+    <select class="form-control" input type = "integer" id="exampleFormControlSelect1" name="rating">
+      <option>5</option>
+      <option>4</option>
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Eat, Drink, or Do?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="purpose">
+      <option>Eat</option>
+      <option>Drink</option>
+      <option>Do</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Review (Keep It Short!)</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" type="string" name="comments"></textarea>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
