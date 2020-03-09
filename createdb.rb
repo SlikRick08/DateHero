@@ -144,5 +144,34 @@ users_table.insert(name: "Christian",
                 email: "falcoca@gmail.com", 
                 password: "Riki")
 
+users_table.insert(name: "Ben",
+                email: "ben.scott@kellogg.northwestern.edu", 
+                password: "Meow")
+
 #Riki's (Seed)
 
+rikis_table = DB.from(:rikis)
+
+rikis_table.insert(locations_id: 1,
+                users_id: 1, 
+                rating: 5,
+                purpose: "eat",
+                comments: "The best late-night cheeseburger + fries combo in Evanston")
+
+rikis_table.insert(locations_id: 1,
+                users_id: 2, 
+                rating: 4,
+                purpose: "eat",
+                comments: "I'd recommend eating by the library book stacks in the back!")
+
+rikis_table.insert(locations_id: 2,
+                users_id: 2, 
+                rating: 4,
+                purpose: "eat",
+                comments: "Brisket sandwich + beers with the boys last Thursday")
+
+rikis_table.insert(locations_id: 2,
+                users_id: 3, 
+                rating: 3,
+                purpose: "drink",
+                comments: "Closes at ~10PM... Classic Evanston")

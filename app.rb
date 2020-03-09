@@ -49,6 +49,8 @@ get "/locations/:id" do
     puts "params: #{params}"
     @locations = locations_table.all.to_a
     @location = locations_table.where(id: params[:id]).to_a[0]
+    @rikis = rikis_table.all.to_a
+    @riki = rikis_table.where(locations_id: params[:id]).to_a[0]
     view "location"
 end
 
