@@ -12,11 +12,35 @@
 
 <p></p>
 
-<h1>Most Recent Rikis - How to Specify for One Bar Only?!?!</h1>
+<h1>Most Recent Rikis</h1>
 
 <% for riki in @rikis %>
-    <p><%= riki[:comments] %></p>
+    <p>User ID: <%= riki[:users_id] %></p>
+    <p>Purpose: <%= riki[:purpose] %></p>
+    <p>Rating: <%= riki[:rating] %></p>
+    <p>Comments: <%= riki[:comments] %></p>
 <% end %>
+
+<!-- Below Table Needs a Lot of Work... -->
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Purpose</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Christian</th>
+      <td><%= riki[:purpose] %></td>
+      <td><%= riki[:rating] %></td>
+      <td><%= riki[:comments] %></td>
+    </tr>
+  </tbody>
+</table>
 
 <h1>Submit a Riki!</h1>
 
