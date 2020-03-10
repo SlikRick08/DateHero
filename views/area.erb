@@ -18,7 +18,7 @@
       <td><% for location in @locations %>
     <p><a href="/locations/<%= location[:id] %>"> <%= location[:description] %></a></p>
 <% end %></td>
-      <td>82%</td>
+      <td><%= @average %></td>
     </tr>
   </tbody>
 </table>

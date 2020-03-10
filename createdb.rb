@@ -199,3 +199,27 @@ rikis_table.insert(locations_id: 4,
                 rating: 4,
                 purpose: "Drink",
                 comments: "An amazing deal even at $350+ a head...")
+
+rikis_table.insert(locations_id: 5,
+                users_id: 2, 
+                rating: 4,
+                purpose: "Eat",
+                comments: "Caught the Cubs here with some buddies last week!")
+
+rikis_table.insert(locations_id: 5,
+                users_id: 3, 
+                rating: 5,
+                purpose: "Drink",
+                comments: "Bottomless mimosas on Saturday was a blast!")
+
+rikis_table.insert(locations_id: 6,
+                users_id: 3, 
+                rating: 1,
+                purpose: "Drink",
+                comments: "Drinks are wayyy watered-down. Tastes like water...")
+
+rikis_table.insert(locations_id: 6,
+                users_id: 1, 
+                rating: 3,
+                purpose: "Drink",
+                comments: "You get what you pay for...")

@@ -10,18 +10,9 @@
   Description: <%= @location[:description] %>
 </h4>
 
-<p></p>
+<br>
 
 <h1>Most Recent Rikis</h1>
-
-<% for riki in @rikis %>
-    <p>User ID: <%= riki[:users_id] %></p>
-    <p>Purpose: <%= riki[:purpose] %></p>
-    <p>Rating: <%= riki[:rating] %></p>
-    <p>Comments: <%= riki[:comments] %></p>
-<% end %>
-
-<!-- Below Table Needs a Lot of Work... -->
 
 <table class="table">
   <thead class="thead-light">
@@ -34,10 +25,15 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Christian</th>
-      <td><%= riki[:purpose] %></td>
-      <td><%= riki[:rating] %></td>
-      <td><%= riki[:comments] %></td>
+      <th scope="row">
+        <p><% for riki in @rikis %><%= riki[:users_id] %></p>
+        <% end %></th>
+      <td><p><% for riki in @rikis %><%= riki[:purpose] %></p>
+        <% end %></td>
+      <td><p><% for riki in @rikis %><%= riki[:rating] %></p>
+        <% end %></td>
+      <td><p><% for riki in @rikis %><%= riki[:comments] %></p>
+        <% end %></td>
     </tr>
   </tbody>
 </table>

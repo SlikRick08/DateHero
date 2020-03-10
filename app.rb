@@ -42,6 +42,7 @@ end
 get "/areas/:id" do
     @area = areas_table.where(id: params[:id]).to_a[0]
     @locations = locations_table.where(areas_id: @area[:id])
+    @average = rikis_table.avg(:rating)
     view "area"
 end
 
@@ -49,6 +50,7 @@ get "/locations/:id" do
     puts "params: #{params}"
     @locations = locations_table.all.to_a
     @location = locations_table.where(id: params[:id]).to_a[0]
+    @user = users_table.where(id: params[:id]).to_a[0]
     @rikis = rikis_table.where(locations_id: @location[:id])
     view "location"
 end
