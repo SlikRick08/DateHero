@@ -26,7 +26,7 @@
   <tbody>
     <tr>
       <th scope="row">
-        <p><% for riki in @rikis %><%= riki[:users_id] %></p>
+        <p><% for riki in @rikis %><%= @users_table.where(id: riki[:users_id]).to_a[0][:name] %></p>
         <% end %></th>
       <td><p><% for riki in @rikis %><%= riki[:purpose] %></p>
         <% end %></td>
@@ -39,17 +39,22 @@
 </table>
 
 <h1>Submit a Riki!</h1>
+<h4><em>Must Be Logged In</em></h4>
 
 <!-- Form for Review Submission -->
 
 <form action = "/rikis/submit" method="post">
   <div class="form-group">
-    <label for="exampleFormControlInput1">User ID</label>
-    <input type="string" class="form-control" id="exampleFormControlInput1" placeholder="Insert User ID">
+    <label for="exampleFormControlInput1">User ID (Auto-Filled)</label>
+    <input type="string" class="form-control" id="exampleFormControlInput1" placeholder="Insert User ID" name="users_id" value="<%= @current_user[:id] %>" readonly>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Location ID (Auto-Filled)</label>
+    <input type="string" class="form-control" id="exampleFormControlInput1" placeholder="Insert Location ID" name="locations_id" value="<%= @location[:id] %>" readonly>
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Riki It! (Score 1-5)</label>
-    <select class="form-control" input type = "integer" id="exampleFormControlSelect1" name="rating">
+    <select class="form-control" input type="integer" id="exampleFormControlSelect1" name="rating">
       <option>5</option>
       <option>4</option>
       <option>3</option>

@@ -42,7 +42,7 @@ end
 get "/areas/:id" do
     @area = areas_table.where(id: params[:id]).to_a[0]
     @locations = locations_table.where(areas_id: @area[:id])
-    @average = rikis_table.avg(:rating)
+    @rikis_table = rikis_table
     view "area"
 end
 
@@ -50,8 +50,8 @@ get "/locations/:id" do
     puts "params: #{params}"
     @locations = locations_table.all.to_a
     @location = locations_table.where(id: params[:id]).to_a[0]
-    @user = users_table.where(id: params[:id]).to_a[0]
     @rikis = rikis_table.where(locations_id: @location[:id])
+    @users_table = users_table
     view "location"
 end
 
@@ -92,7 +92,9 @@ end
 
 post "/rikis/submit" do
     puts params
-    rikis_table.insert(purpose: params["purpose"],
+    rikis_table.insert(users_id: params["users_id"],
+                        locations_id: params["locations_id"],
+                        purpose: params["purpose"],
                         rating: params["rating"],
                         comments: params["comments"])
     view "submit_riki"

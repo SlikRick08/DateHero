@@ -16,9 +16,11 @@
     <p><a href="/locations/<%= location[:id] %>"><%= location[:name] %></a></p>
 <% end %></td>
       <td><% for location in @locations %>
-    <p><a href="/locations/<%= location[:id] %>"> <%= location[:description] %></a></p>
+    <p><%= location[:description] %></p>
 <% end %></td>
-      <td><%= @average %></td>
+      <td>
+      Need to do Loop Here
+      </td>
     </tr>
   </tbody>
 </table>
