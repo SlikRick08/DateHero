@@ -1,8 +1,9 @@
 
 # Set Up for the Application and Database. DO NOT CHANGE. #############################
-require "sinatra"  
+require "sinatra"                                                                     #
 require "sinatra/cookies"                                                             #
 require "sinatra/reloader" if development?                                            #
+require "geocoder"                                                                    #
 require "sequel"                                                                      #
 require "logger"                                                                      #
 require "bcrypt"                                                                      #
@@ -54,6 +55,16 @@ get "/locations/:id" do
     @users_table = users_table
     @average = rikis_table.where(locations_id: @location[:id]).avg(:rating)
     view "location"
+end
+
+get "/where2/:id" do
+  # lat: ± 90.0
+  # long: ± 180.0
+  @lat = rand(-90.0..90.0)
+  @long = rand(-180.0..180.0)
+  @lat_long = "#{@lat},#{@long}"
+  @location = locations_table.where(id: params[:id]).to_a[0]
+  view "where2"
 end
 
 get "/users/new" do
