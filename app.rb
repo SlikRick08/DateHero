@@ -16,6 +16,9 @@ before { puts; puts "--------------- NEW REQUEST ---------------"; puts }       
 after { puts; }                                                                       #
 #######################################################################################
 
+#Dark Sky API
+ForecastIO.api_key = "759dd31fed59084b329d32c1ec849ee6"
+
 #Locations Table = Bars, Restaurants, Parks, etc.
 locations_table = DB.from(:locations)
 
@@ -41,7 +44,9 @@ end
 
 get "/areas/:id" do
     @area = areas_table.where(id: params[:id]).to_a[0]
+    @locations_reference = locations_table.where(id: params[:id]).to_a[0]
     @locations = locations_table.where(areas_id: @area[:id])
+    @rikis = rikis_table.where(locations_id: @locations_reference[:id]).to_a
     @rikis_table = rikis_table
     view "area"
 end
@@ -61,9 +66,16 @@ end
 
 post "/users/create" do
     puts params
-    hashed_password = BCrypt::Password.create(params["password"])
-    users_table.insert(name: params["name"], email: params["email"], password: hashed_password)
-    view "create_user"
+    
+    # Prevent Duplicate Emails
+    existing_user = users_table.where(email: params["email"]).to_a[0]
+    if existing_user
+        view "error"
+    else
+        hashed_password = BCrypt::Password.create(params["password"])
+        users_table.insert(name: params["name"], email: params["email"], password: hashed_password)
+        redirect "/logins/new"
+    end
 end
 
 get "/logins/new" do
