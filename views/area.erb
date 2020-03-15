@@ -7,7 +7,7 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
-      <th scope="col">RikiCount</th>
+      <th scope="col">Address</th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +18,8 @@
       <td><% for location in @locations %>
     <p><%= location[:description] %></p>
 <% end %></td>
-      <td><% for riki in @rikis %>
-    <p><%= @rikis_table.where(locations_id: @rikis).to_a[0][:rating] %></p>
+      <td><% for location in @locations%>
+    <p><%= location[:address] %></p>
 <% end %></td>
     </tr>
   </tbody>

@@ -3,11 +3,19 @@
 </h1>
 
 <h4>
-  Address: <%= @location[:address] %>
+  Description: <%= @location[:description] %>
 </h4>
 
 <h4>
-  Description: <%= @location[:description] %>
+  Address: <%= @location[:address] %>
+</h4>
+
+<br>
+
+<h4>
+    <em>
+        Riki-Score: <%= @average.round(2)%>
+    </em>
 </h4>
 
 <br>
