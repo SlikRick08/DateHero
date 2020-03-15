@@ -19,7 +19,7 @@
     <p><%= location[:description] %></p>
 <% end %></td>
       <td><% for location in @locations%>
-    <p><a href="/where2/<%= location[:address] %>"><%= location[:address] %></a></p>
+    <p><a href="/map/<%= location[:id] %>"><%= location[:address] %></a></p>
 <% end %></td>
     </tr>
   </tbody>

@@ -109,7 +109,7 @@ locations_table.insert(name: "Bub City",
 locations_table = DB.from(:locations)
 locations_table.insert(name: "Moneygun", 
                     description: "Loud Rap Music!",
-                    address: "660 W Lake St",
+                    address: "660 W Lake St, Chicago, IL 60661",
                     areas_id: 5)
 
 locations_table = DB.from(:locations)
