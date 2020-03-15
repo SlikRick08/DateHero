@@ -1,13 +1,20 @@
     <div class="container mt-5">
-      <h1>Where 2?</h1>
+      <h2>MAP: <%= @location[:name] %></h2>
+      
+      <br>
+
       <iframe
         width="600"
         height="450"
         frameborder="0" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDgho0Y7QbrU-ezjumt3T6Moptq27mcm5c
-          &q=<%= @location[:address] %>&zoom=6" allowfullscreen>
+          &q=<%= @location[:address] %>&zoom=14" allowfullscreen>
       </iframe>
+
+      <br>  
+<div>
       <p>
-        <a href="/" class="btn btn-primary">Go again!</a>
+        <a href="/areas/<%= @location[:areas_id] %>" class="btn btn-primary">Go Back!</a>
       </p>
-    </div>
+</div>    
+      </div>
