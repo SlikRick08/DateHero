@@ -61,9 +61,6 @@ get "/map/:id" do
   # lat: ± 90.0
   # long: ± 180.0
   puts "params: #{params}"
-  @lat = rand(-90.0..90.0)
-  @long = rand(-180.0..180.0)
-  @lat_long = "#{@lat},#{@long}"
   @locations = locations_table.all.to_a
   @location = locations_table.where(id: params[:id]).to_a[0]
   view "map"
